@@ -36,7 +36,7 @@ function Home() {
                             <h1 className="display-1 fw-bold" style={{ fontFamily: 'Playfair Display, serif' }}>
                                 Timeless<br />Elegance
                             </h1>
-                            <p className="lead">Handcrafted Italian frames with mineral glass lenses.</p>
+                            <p className="lead">Discover the art of luxury eyewear</p>
                             <Link to="/products" className="btn btn-gold btn-lg px-5 py-3">
                                 Explore Collection <i className="bi bi-arrow-right ms-2"></i>
                             </Link>

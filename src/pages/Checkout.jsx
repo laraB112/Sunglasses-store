@@ -159,7 +159,6 @@ function Checkout() {
               />
             </div>
 
-            {/* Payment Method */}
             <h5 className="mb-3">Payment Method</h5>
             <div className="mb-4">
               <div className="d-flex gap-4">
@@ -195,7 +194,7 @@ function Checkout() {
               <small className="text-muted d-block mt-2">
                 {form.paymentMethod === 'cash' 
                   ? 'Pay when your order arrives at your doorstep.' 
-                  : 'Secure card payment (simulated for demo).'}
+                  : 'Secure card payment.'}
               </small>
             </div>
 
