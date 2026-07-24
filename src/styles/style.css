@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #faf7f2;
+    color: #1e1a16;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+:root {
+    --gold: #c9a87c;
+    --dark: #1e1a16;
+}
+
+.text-gold {
+    color: var(--gold);
+}
+
+.bg-gold {
+    background-color: var(--gold);
+}
+
+.bg-dark-custom {
+    background-color: var(--dark);
+}
+
+.btn-gold {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: #b89566;
+    border-color: #b89566;
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 168, 124, 0.3);
+}
+
+.product-card {
+    background: white;
+    border: none;
+    border-radius: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.navbar {
+    background-color: var(--dark) !important;
+}
