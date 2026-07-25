@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# PureLux - Luxury Sunglasses Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
+PureLux is a luxury sunglasses e-commerce platform built with React. Users can browse premium sunglasses, view product details, add items to their shopping cart, and complete the checkout process. This website features a responsive design that works on all devices and offers a curated collection of luxury sunglasses from brands such as Cartier, Dior, Fendi, Louis Vuitton (LV), Miu Miu, and Versace.
 
-## Available Scripts
+> **Note:** This is a **frontend-only** implementation that demonstrates the user interface, shopping cart functionality, and checkout flow using mock data. All product data is stored locally, and the cart is persisted using the browser's `localStorage`.
+## Features
+- Browse luxury sunglasses by brand category
+- Search for specific styles
+- View product details with descriptions
+- Add items to shopping cart
+- Manage cart quantities
+- Checkout with Cash on Delivery option
+- $4 shipping across Lebanon
+- Cart persistence using localStorage
+- Responsive design (mobile-friendly)
 
-In the project directory, you can run:
+## Technologies Used
+- React 18
+- React Router (for navigation)
+- Bootstrap 5 (for styling)
+- React Context API (for cart state management)
+- Bootstrap Icons
+- Git & GitHub
 
-### `npm start`
+## Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/laraB112/sunglasses-store.git
 
-### `npm test`
+# Navigate to project folder
+cd frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Install dependencies
+npm install
 
-### `npm run build`
+# Start the development server
+npm start
+```
+Open **http://localhost:3000** in your browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### UI Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Homepage
+![HeroSection](./src/assets/UI/HeroSection.png)
+![FeaturedProducts](./src/assets/UI/Featured.png)
+![Footer](./src/assets/UI/Footer.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## About Us
+![AboutUs](./src/assets/UI/AboutUs.png)
 
-### `npm run eject`
+## Collection Page
+![Collection Page](./src/assets/UI/CollectionList.png)
+![Collection Page](./src/assets/UI/CollectionList2.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Filter Product Feature
+![Collection Page - Filtered](./src/assets/UI/FilterFeature.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Product Details
+![ProductDetails](./src/assets/UI/ProductDetail.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contact Us
+![Contact Page](./src/assets/UI/Contact.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Cart
+![Cart Page](./src/assets/UI/Cart.png)
 
-## Learn More
+## Checkout
+![Checkout Page](./src/assets/UI/Checkout.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Alerts When Confirming Order
+![Order Confirmation Alert](./src/assets/UI/AlertSimulation.png)
+![Order Confirmation Alert2](./src/assets/UI/Alert2.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Lara Albayasli**
