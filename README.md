@@ -22,6 +22,7 @@ PureLux is a luxury sunglasses e-commerce platform built with React. Users can b
 - React Context API (for cart state management)
 - Bootstrap Icons
 - Git & GitHub
+- Mock Data (no backend)
 
 ## Setup Instructions
 
