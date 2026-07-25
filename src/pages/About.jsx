@@ -1,4 +1,3 @@
-// src/pages/About.jsx
 function About() {
   return (
     <div className="container py-5">

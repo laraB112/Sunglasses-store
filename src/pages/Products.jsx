@@ -1,4 +1,3 @@
-// src/pages/Products.jsx
 import { useState } from 'react';
 import { products, categories } from '../data/products';
 import ProductCard from '../components/ProductCard';

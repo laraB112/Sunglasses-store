@@ -1,4 +1,3 @@
-// src/pages/Contact.jsx
 import { useState } from 'react';
 
 function Contact() {

@@ -1,4 +1,3 @@
-// src/pages/ProductDetail.jsx
 import { useParams, useNavigate } from 'react-router-dom';
 import { products } from '../data/products';
 import { useCart } from '../Context/Context.js';

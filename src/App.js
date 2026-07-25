@@ -1,4 +1,3 @@
-// src/App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './Context/Context.js';
 import Navbar from './components/Navbar';
@@ -15,6 +14,7 @@ import Contact from './pages/Contact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './styles/style.css';
+import { products } from './data/products.js';
 
 function App() {
   return (
@@ -24,13 +24,13 @@ function App() {
         <Navbar />
         <main style={{ minHeight: '80vh' }}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/" exact component={Home} />
+            <Route path="/products" exact component={Products} />
+            <Route path="/products/:id" exact component={ProductDetail} />
+            <Route path="/cart" exact component={Cart} />
+            <Route path="/checkout" exact component={Checkout} />
+            <Route path="/about" exact component={About} />
+            <Route path="/contact" exact component={Contact} />
           </Routes>
         </main>
         <Footer />

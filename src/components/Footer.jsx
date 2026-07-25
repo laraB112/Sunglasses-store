@@ -7,7 +7,7 @@ function Footer() {
         <div className="row">
           <div className="col-md-4">
             <h5 className="text-gold">PURELUX</h5>
-            <p className="small">Handcrafted Italian sunglasses since 1923.</p>
+            <p className="small">Luxury since 2021.</p>
           </div>
           <div className="col-md-4">
             <h5 className="text-gold">Quick Links</h5>

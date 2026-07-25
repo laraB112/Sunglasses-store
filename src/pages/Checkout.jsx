@@ -1,4 +1,3 @@
-// src/pages/Checkout.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../Context/Context';
@@ -46,7 +45,6 @@ function Checkout() {
       orderDate: new Date().toLocaleString()
     };
 
-    // Order confirmation without emojis
     alert(
       `ORDER CONFIRMED\n\n` +
       `Customer: ${orderDetails.customer.name}\n` +
@@ -204,7 +202,6 @@ function Checkout() {
           </form>
         </div>
 
-        {/* Order Summary */}
         <div className="col-lg-5">
           <div className="card">
             <div className="card-body">
@@ -251,7 +248,6 @@ function Checkout() {
             </div>
           </div>
 
-          {/* Shipping Info Card */}
           <div className="card mt-3">
             <div className="card-body">
               <h6 className="mb-2">
@@ -261,7 +257,7 @@ function Checkout() {
                 $4 shipping all over Lebanon
               </small>
               <small className="text-muted d-block">
-                Free returns within 14 days
+                Free returns within 10 days
               </small>
               <small className="text-muted d-block">
                 Estimated delivery: 2-5 business days
