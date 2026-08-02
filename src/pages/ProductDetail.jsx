@@ -1,21 +1,44 @@
+// src/pages/ProductDetail.jsx
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { products } from '../data/products';
 import { useCart } from '../Context/Context.js';
 
 function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  const product = products.find(p => p.id === parseInt(id));
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:8083/products/${id}`)  
+      .then(res => res.json())
+      .then(data => {
+        setProduct(data[0]);
+      })
+      .catch(err => {
+        console.error('Error fetching product:', err);
+        setProduct(null);
+      });
+  }, [id]);
 
   if (!product) {
     return (
       <div className="container text-center py-5">
         <h3>Product not found</h3>
-        <button className="btn btn-dark" onClick={() => navigate('/products')}>Back to Collection</button>
+        <button className="btn btn-dark" onClick={() => navigate('/products')}>
+          Back to Collection
+        </button>
       </div>
     );
   }
+
+  const cartProduct = {
+    id: product.productId,
+    name: product.name,
+    price: product.price,
+    image: product.image_url,
+    description: product.description
+  };
 
   return (
     <div className="container py-5">
@@ -26,10 +49,13 @@ function ProductDetail() {
       <div className="row">
         <div className="col-md-6">
           <img 
-            src={product.image} 
+            src={product.image_url}  // 👈 Just the path
             alt={product.name} 
             className="img-fluid" 
-            style={{ objectFit: 'cover', width: '100%', height: '500px' }} 
+            style={{ objectFit: 'cover', width: '100%', height: '500px' }}
+            onError={(e) => {
+              e.target.src = 'https://via.placeholder.com/500x500/1e1a16/c9a87c?text=No+Image';
+            }}
           />
         </div>
         <div className="col-md-6">
@@ -42,7 +68,7 @@ function ProductDetail() {
           <button 
             className="btn btn-gold btn-lg w-100" 
             onClick={() => { 
-              addToCart(product); 
+              addToCart(cartProduct); 
               navigate('/cart'); 
             }}
           >
