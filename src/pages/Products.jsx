@@ -1,16 +1,45 @@
-import { useState } from 'react';
-import { products, categories } from '../data/products';
+import { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 
-function Products() {
+function Products() {  
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState('All');
   const [search, setSearch] = useState('');
 
+  const categories = ['All', 'Cartier', 'Dior', 'Fendi', 'LV', 'MIUMIU', 'Versace'];
+
+  useEffect(() => {
+    fetch('http://localhost:8083/products')
+      .then(res => res.json())
+      .then(data => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching products:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  // filter products
   const filtered = products.filter(p => {
     const matchCategory = category === 'All' || p.category === category;
     const matchSearch = p.name.toLowerCase().includes(search.toLowerCase());
     return matchCategory && matchSearch;
   });
+
+  
+  if (loading) {
+    return (
+      <div className="container text-center py-5">
+        <div className="spinner-border text-gold" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+        <p className="mt-3">Loading products...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container py-5">
@@ -50,7 +79,7 @@ function Products() {
       ) : (
         <div className="row g-4">
           {filtered.map(p => (
-            <div className="col-md-4 col-lg-3" key={p.id}>
+            <div className="col-md-4 col-lg-3" key={p.productId}> 
               <ProductCard product={p} />
             </div>
           ))}

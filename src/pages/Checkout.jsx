@@ -1,3 +1,4 @@
+// src/pages/Checkout.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../Context/Context';
@@ -22,49 +23,46 @@ function Checkout() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // 👇 THIS IS THE ONLY CHANGE - Send order to backend
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const orderDetails = {
-      customer: {
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        address: `${form.address}, ${form.city}`
-      },
-      items: cart.map(item => ({
+
+    // Prepare order data
+    const orderData = {
+      customer_name: form.name,
+      customer_email: form.email,
+      customer_phone: form.phone,
+      shipping_address: form.address,
+      city: form.city,
+      total: total,
+      items: JSON.stringify(cart.map(item => ({
         name: item.name,
         quantity: item.quantity,
-        price: item.price,
-        subtotal: (item.price * item.quantity).toFixed(2)
-      })),
-      subtotal: subtotal.toFixed(2),
-      shipping: SHIPPING_COST.toFixed(2),
-      total: total.toFixed(2),
-      paymentMethod: form.paymentMethod === 'cash' ? 'Cash on Delivery' : 'Card Payment',
-      orderDate: new Date().toLocaleString()
+        price: item.price
+      })))
     };
 
-    alert(
-      `ORDER CONFIRMED\n\n` +
-      `Customer: ${orderDetails.customer.name}\n` +
-      `Email: ${orderDetails.customer.email}\n` +
-      `Phone: ${orderDetails.customer.phone}\n` +
-      `Address: ${orderDetails.customer.address}\n\n` +
-      `Items:\n${orderDetails.items.map(item => 
-        `  - ${item.name} x${item.quantity} = $${item.subtotal}`
-      ).join('\n')}\n\n` +
-      `Subtotal: $${orderDetails.subtotal}\n` +
-      `Shipping: $${orderDetails.shipping}\n` +
-      `Payment: ${orderDetails.paymentMethod}\n` +
-      `----------------------------\n` +
-      `TOTAL: $${orderDetails.total}\n\n` +
-      `Date: ${orderDetails.orderDate}\n` +
-      `Thank you for shopping with PureLux!`
-    );
+    // Send to backend
+    fetch('http://localhost:8083/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        // Show confirmation
+        alert(
+          `ORDER CONFIRMED\n\n` +
+          `Thank you for shopping with PureLux!`
+        );
 
-    clearCart();
-    navigate('/');
+        clearCart();
+        navigate('/');
+      })
+      .catch(err => {
+        alert('Error placing order. Please try again.');
+        console.error(err);
+      });
   };
 
   if (cart.length === 0) {
@@ -85,12 +83,12 @@ function Checkout() {
       <h2 className="mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
         <i className="bi bi-credit-card text-gold me-2"></i>Checkout
       </h2>
-      
+
       <div className="row">
         <div className="col-lg-7">
           <form onSubmit={handleSubmit}>
             <h5 className="mb-3">Shipping Information</h5>
-            
+
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label className="form-label">Full Name</label>
@@ -190,8 +188,8 @@ function Checkout() {
                 </div>
               </div>
               <small className="text-muted d-block mt-2">
-                {form.paymentMethod === 'cash' 
-                  ? 'Pay when your order arrives at your doorstep.' 
+                {form.paymentMethod === 'cash'
+                  ? 'Pay when your order arrives at your doorstep.'
                   : 'Secure card payment.'}
               </small>
             </div>
@@ -207,11 +205,11 @@ function Checkout() {
             <div className="card-body">
               <h5 className="card-title">Order Summary</h5>
               <hr />
-              
+
               {cart.map(item => (
                 <div key={item.id} className="d-flex justify-content-between py-2 border-bottom">
                   <span>
-                    {item.name} 
+                    {item.name}
                     <small className="text-muted ms-1">x{item.quantity}</small>
                   </span>
                   <span>${(item.price * item.quantity).toFixed(2)}</span>
