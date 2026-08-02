@@ -76,10 +76,12 @@ function AdminProducts() {
                                 <td>{product.productId}</td>
                                 <td>
                                     <img
-                                        src={product.image_url}
+                                        src={`http://localhost:8083${product.image_url}`}
                                         alt={product.name}
                                         style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-                                        onError={(e) => e.target.src = 'https://via.placeholder.com/50/1e1a16/c9a87c?text=No+Image'}
+                                        onError={(e) => {
+                                            e.target.src = 'https://via.placeholder.com/50/1e1a16/c9a87c?text=No+Image';
+                                        }}
                                     />
                                 </td>
                                 <td>{product.name}</td>

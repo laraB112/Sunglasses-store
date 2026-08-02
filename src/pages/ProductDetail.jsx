@@ -9,7 +9,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8083/products/${id}`)  
+    fetch(`http://localhost:8083/products/${id}`)
       .then(res => res.json())
       .then(data => {
         setProduct(data[0]);
@@ -44,13 +44,13 @@ function ProductDetail() {
       <button className="btn btn-outline-dark mb-4" onClick={() => navigate(-1)}>
         <i className="bi bi-arrow-left me-2"></i>Back
       </button>
-      
+
       <div className="row">
         <div className="col-md-6">
-          <img 
-            src={product.image_url}  // 👈 Just the path
-            alt={product.name} 
-            className="img-fluid" 
+          <img
+            src={`http://localhost:8083${product.image_url}`} 
+            alt={product.name}
+            className="img-fluid"
             style={{ objectFit: 'cover', width: '100%', height: '500px' }}
             onError={(e) => {
               e.target.src = 'https://via.placeholder.com/500x500/1e1a16/c9a87c?text=No+Image';
@@ -64,11 +64,11 @@ function ProductDetail() {
           <p className="text-muted">{product.brand}</p>
           <h3 className="text-gold mb-4">${product.price}</h3>
           <p className="lead">{product.description}</p>
-          <button 
-            className="btn btn-gold btn-lg w-100" 
-            onClick={() => { 
-              addToCart(cartProduct); 
-              navigate('/cart'); 
+          <button
+            className="btn btn-gold btn-lg w-100"
+            onClick={() => {
+              addToCart(cartProduct);
+              navigate('/cart');
             }}
           >
             <i className="bi bi-bag-plus me-2"></i>Add to Bag

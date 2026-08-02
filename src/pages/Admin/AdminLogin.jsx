@@ -10,7 +10,6 @@ function AdminLogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Hardcoded admin credentials (you can change these)
     if (email === 'LaraAdmin@gmail.com' && password === 'admin123') {
       localStorage.setItem('adminToken', 'admin-logged-in');
       navigate('/admin/dashboard');

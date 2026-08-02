@@ -58,21 +58,21 @@ function AdminEditProduct() {
       method: 'PUT',
       body: formData
     })
-    .then(res => res.json())
-    .then(() => {
-      alert('Product updated successfully!');
-      navigate('/admin/products');
-    })
-    .catch(err => {
-      alert('Error updating product');
-      setLoading(false);
-    });
+      .then(res => res.json())
+      .then(() => {
+        alert('Product updated successfully!');
+        navigate('/admin/products');
+      })
+      .catch(err => {
+        alert('Error updating product');
+        setLoading(false);
+      });
   };
 
   return (
     <div className="container py-5" style={{ maxWidth: '600px' }}>
       <h2 className="mb-4">Edit Product</h2>
-      
+
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Product Name</label>
@@ -85,7 +85,7 @@ function AdminEditProduct() {
             required
           />
         </div>
-        
+
         <div className="mb-3">
           <label className="form-label">Brand</label>
           <input
@@ -97,7 +97,7 @@ function AdminEditProduct() {
             required
           />
         </div>
-        
+
         <div className="mb-3">
           <label className="form-label">Price ($)</label>
           <input
@@ -109,7 +109,7 @@ function AdminEditProduct() {
             required
           />
         </div>
-        
+
         <div className="mb-3">
           <label className="form-label">Category</label>
           <select
@@ -126,18 +126,21 @@ function AdminEditProduct() {
             <option value="Versace">Versace</option>
           </select>
         </div>
-        
+
         <div className="mb-3">
           <label className="form-label">Current Image</label>
           <div>
-            <img 
-              src={existingImage} 
-              alt="Current"
+            <img
+              src={`http://localhost:8083${existingImage}`}
+              alt="Current product"
               style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/100/1e1a16/c9a87c?text=No+Image';
+              }}
             />
           </div>
         </div>
-        
+
         <div className="mb-3">
           <label className="form-label">New Image (optional)</label>
           <input
@@ -147,7 +150,7 @@ function AdminEditProduct() {
             onChange={handleImageChange}
           />
         </div>
-        
+
         <div className="mb-3">
           <label className="form-label">Description</label>
           <textarea
@@ -158,7 +161,7 @@ function AdminEditProduct() {
             onChange={handleChange}
           />
         </div>
-        
+
         <button type="submit" className="btn btn-gold w-100" disabled={loading}>
           {loading ? 'Updating...' : 'Update Product'}
         </button>

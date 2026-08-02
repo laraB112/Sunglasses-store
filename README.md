@@ -1,85 +1,258 @@
-# PureLux - Luxury Sunglasses Store
+# PureLux – Luxury Sunglasses Store
 
-## Project Description
-PureLux is a luxury sunglasses e-commerce platform built with React. Users can browse premium sunglasses, view product details, add items to their shopping cart, and complete the checkout process. This website features a responsive design that works on all devices and offers a curated collection of luxury sunglasses from brands such as Cartier, Dior, Fendi, Louis Vuitton (LV), Miu Miu, and Versace.
+A full-stack e-commerce web application for browsing and purchasing luxury sunglasses. The project provides customers with a smooth shopping experience while giving administrators the ability to manage products and customer orders through a dedicated admin panel.
 
-> **Note:** This is a **frontend-only** implementation that demonstrates the user interface, shopping cart functionality, and checkout flow using mock data. All product data is stored locally, and the cart is persisted using the browser's `localStorage`.
-## Features
-- Browse luxury sunglasses by brand category
-- Search for specific styles
-- View product details with descriptions
-- Add items to shopping cart
-- Manage cart quantities
-- Checkout with Cash on Delivery option
-- $4 shipping across Lebanon
-- Cart persistence using localStorage
-- Responsive design (mobile-friendly)
+---
 
-## Technologies Used
+# Overview
+
+PureLux is an online luxury sunglasses store built using **React**, **Node.js**, **Express.js**, and **MySQL**. The application allows users to browse products, search and filter sunglasses, manage their shopping cart, and complete the checkout process. It also includes an admin dashboard where products can be added, edited, or removed, customer orders can be viewed, and product images can be uploaded.
+
+---
+
+# Features
+
+## Customer Features
+
+- Browse available sunglasses
+- Search and filter products
+- View product details
+- Add and remove items from the shopping cart
+- Update product quantities
+- Guest checkout
+- User registration and login
+- Order confirmation
+
+## Admin Features
+
+- Secure administrator login
+- View dashboard statistics
+- Add new products
+- Edit existing products
+- Delete products
+- Upload product images
+- View customer orders
+
+---
+
+# Technologies Used
+
+## Frontend
+
 - React 18
-- React Router (for navigation)
-- Bootstrap 5 (for styling)
-- React Context API (for cart state management)
+- React Router
+- Bootstrap 5
+- React Context API
 - Bootstrap Icons
-- Git & GitHub
-- Mock Data (no backend)
 
-## Setup Instructions
+## Backend
 
-### Prerequisites
-- Node.js (v14 or higher)
+- Node.js
+- Express.js
+- MySQL
+- Multer (for images)
+- CORS
+
+---
+
+```
+
+---
+
+# Installation
+
+## Prerequisites
+
+Before running the project, make sure you have:
+
+- Node.js (version 14 or later)
+- MySQL
 - npm
 
-### Installation
+## Clone the Repository
+
 ```bash
-# Clone the repository
-git clone https://github.com/laraB112/sunglasses-store.git
+git clone https://github.com/laraB112/Sunglasses-store.git
+cd Sunglasses-store
+```
 
-# Navigate to project folder
-cd frontend
+## Backend Setup
 
-# Install dependencies
+```bash
+cd backend
+
+npm install
+```
+
+Create a MySQL database, then import the `database.sql` file.
+
+Start the backend server:
+
+```bash
+node server.js
+```
+
+## Frontend Setup
+
+```bash
+cd ../frontend
+
 npm install
 
-# Start the development server
 npm start
 ```
-Open **http://localhost:3000** in your browser.
 
-### UI Screenshots
+After running both servers, the application will be available at:
 
-## Homepage
-![HeroSection](./src/assets/UI/HeroSection.png)
-![FeaturedProducts](./src/assets/UI/Featured.png)
-![Footer](./src/assets/UI/Footer.png)
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8083
 
-## About Us
-![AboutUs](./src/assets/UI/AboutUs.png)
+---
 
-## Collection Page
-![Collection Page](./src/assets/UI/CollectionList.png)
-![Collection Page](./src/assets/UI/CollectionList2.png)
+# Default Admin Account
 
-## Filter Product Feature
-![Collection Page - Filtered](./src/assets/UI/FilterFeature.png)
+Email:
 
-## Product Details
-![ProductDetails](./src/assets/UI/ProductDetail.png)
+```text
+LaraAdmin@gmail.com
+```
 
-## Contact Us
-![Contact Page](./src/assets/UI/Contact.png)
+Password:
 
-## Cart
-![Cart Page](./src/assets/UI/Cart.png)
+```text
+admin123
+```
 
-## Checkout
-![Checkout Page](./src/assets/UI/Checkout.png)
+---
 
-## Alerts When Confirming Order
-![Order Confirmation Alert](./src/assets/UI/AlertSimulation.png)
-![Order Confirmation Alert2](./src/assets/UI/Alert2.png)
+# API Routes
 
+The backend includes routes for:
 
-## Author
+- Retrieving all products
+- Retrieving a single product
+- Adding a new product
+- Updating an existing product
+- Deleting a product
+- Viewing all customer orders
+- Creating a new order
+- User registration
+- User login
 
-**Lara Albayasli**
+---
+
+# Database
+
+The database contains three main tables:
+
+## Users
+
+Stores customer account information including name, email, password, phone number, and shipping address.
+
+```sql
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    address TEXT,
+    city VARCHAR(50)
+);
+```
+
+## Products
+
+Stores information about each sunglasses product available in the store.
+
+```sql
+CREATE TABLE products (
+    productId INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    brand VARCHAR(50) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    image_url VARCHAR(255),
+    description TEXT
+);
+```
+
+## Orders
+
+Stores customer order details including shipping information, total price, and purchased items.
+
+```sql
+CREATE TABLE orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_name VARCHAR(100) NOT NULL,
+    customer_email VARCHAR(100) NOT NULL,
+    customer_phone VARCHAR(20),
+    shipping_address TEXT,
+    city VARCHAR(50),
+    total DECIMAL(10,2) NOT NULL,
+    items JSON NOT NULL
+);
+
+The items column is stored as JSON to simplify the order structure, allowing all product details (name, quantity, price) to be saved in a single column without requiring a separate order_items table and complex JOIN queries.
+
+```
+
+---
+
+# Screenshots
+
+### Homepage
+
+![Homepage](./frontend/src/assets/UI/HeroSection.png)
+
+### Products Page
+
+![Products](./frontend/src/assets/UI/CollectionList.png)
+
+### Shopping Cart
+
+![Cart](./frontend/src/assets/UI/Cart.png)
+
+### Checkout
+
+![Checkout](./frontend/src/assets/UI/Checkout.png)
+
+### Admin Dashboard
+
+![Admin Dashboard](./frontend/src/assets/UI/AdminDashboard.png)
+
+### Product Management
+
+![Product Management](./frontend/src/assets/UI/AdminProducts.png)
+
+---
+
+# Future Improvements
+
+Possible enhancements for future versions include:
+
+- Online payment integration
+- Wishlist functionality
+- Product reviews and ratings
+- Order tracking
+- Email notifications
+- Improved mobile responsiveness
+
+---
+
+# Author
+
+**Lara Al Bayasli**
+**Student ID:** 12232131
+
+---
+
+# Academic Information
+
+**Course:** CSCI426 – Advanced Web Programming
+
+**Semester:** Summer 2026
+
+**Project Completed:** August 2026
+
+---

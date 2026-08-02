@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -27,8 +27,17 @@ function Footer() {
           </div>
         </div>
         <hr className="border-light opacity-25" />
-        <p className="text-center small mb-0">&copy; 2026 PURELUX</p>
+        <p className="text-center small mb-0">&copy; 2026</p>
       </div>
+      <p className="text-center small mb-0">
+        Powered by
+        <span
+          onClick={() => window.location.href = '/admin/login'}
+          style={{ cursor: 'pointer', fontWeight: 'bold' }}
+        >
+          PureLux
+        </span>
+      </p>
     </footer>
   );
 }
