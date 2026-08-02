@@ -7,7 +7,6 @@ function Home() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // 👇 Fetch products from backend
     useEffect(() => {
         fetch('http://localhost:8083/products')
             .then(res => res.json())

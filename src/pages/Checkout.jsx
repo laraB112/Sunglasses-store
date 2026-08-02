@@ -1,3 +1,4 @@
+// src/pages/Checkout.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../Context/Context';
@@ -46,6 +47,7 @@ function Checkout() {
     })
       .then(res => res.json())
       .then(data => {
+
         alert(
           `ORDER CONFIRMED\n\n` +
           `Thank you for shopping with PureLux!`
