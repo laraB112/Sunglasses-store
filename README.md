@@ -79,6 +79,7 @@ Open **http://localhost:3000** in your browser.
 ![Order Confirmation Alert](./src/assets/UI/AlertSimulation.png)
 ![Order Confirmation Alert2](./src/assets/UI/Alert2.png)
 
+
 ## Author
 
 **Lara Albayasli**

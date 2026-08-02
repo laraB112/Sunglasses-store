@@ -1,4 +1,3 @@
-// src/pages/Checkout.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../Context/Context';
@@ -23,11 +22,9 @@ function Checkout() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // 👇 THIS IS THE ONLY CHANGE - Send order to backend
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prepare order data
     const orderData = {
       customer_name: form.name,
       customer_email: form.email,
@@ -42,7 +39,6 @@ function Checkout() {
       })))
     };
 
-    // Send to backend
     fetch('http://localhost:8083/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -50,7 +46,6 @@ function Checkout() {
     })
       .then(res => res.json())
       .then(data => {
-        // Show confirmation
         alert(
           `ORDER CONFIRMED\n\n` +
           `Thank you for shopping with PureLux!`

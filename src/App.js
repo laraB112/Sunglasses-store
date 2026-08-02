@@ -1,4 +1,3 @@
-// src/App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './Context/Context';
 import Navbar from './components/Navbar';
@@ -11,7 +10,9 @@ import Checkout from './pages/Checkout';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
-// 👇 IMPORT ADMIN PAGES
+import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
+
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import AdminProducts from './pages/Admin/AdminProducts';
@@ -23,7 +24,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './styles/style.css';
 
-
 function App() {
   return (
     <CartProvider>
@@ -31,7 +31,7 @@ function App() {
         <Navbar />
         <main style={{ minHeight: '80vh' }}>
           <Routes>
-            {/* Public Routes */}
+
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<ProductDetail />} />
@@ -39,8 +39,8 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            
-            {/* 👇 ADMIN ROUTES */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/products" element={<AdminProducts />} />
