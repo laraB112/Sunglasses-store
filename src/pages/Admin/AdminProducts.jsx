@@ -1,4 +1,3 @@
-// src/pages/Admin/AdminProducts.jsx
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -8,7 +7,6 @@ function AdminProducts() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Check admin login
         const token = localStorage.getItem('adminToken');
         if (!token) {
             window.location.href = '/admin/login';

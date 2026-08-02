@@ -1,4 +1,3 @@
-// src/components/ProductCard.jsx
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../Context/Context.js';
 
@@ -6,32 +5,18 @@ function ProductCard({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
-<<<<<<< HEAD
-=======
-  // Cart product with correct fields
->>>>>>> a6b1d9d30120735faaa58a1e7557d1cd759b6ef6
   const cartProduct = {
     id: product.productId,
     name: product.name,
     brand: product.brand,
     price: product.price,
     category: product.category,
-<<<<<<< HEAD
-    image: product.image_url, 
-=======
-    image: product.image_url,  // 👈 Now just the path (proxy handles it)
->>>>>>> a6b1d9d30120735faaa58a1e7557d1cd759b6ef6
     description: product.description
   };
 
   return (
     <div className="card product-card h-100 shadow-sm">
       <img
-<<<<<<< HEAD
-        src={`http://localhost:8083${product.image_url}`} 
-=======
-        src={`http://localhost:8083${product.image_url}`}  // 👈 Just the path
->>>>>>> a6b1d9d30120735faaa58a1e7557d1cd759b6ef6
         className="card-img-top"
         alt={product.name}
         style={{ height: '250px', objectFit: 'cover' }}
