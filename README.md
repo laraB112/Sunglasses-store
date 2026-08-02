@@ -201,29 +201,92 @@ The items column is stored as JSON to simplify the order structure, allowing all
 
 # Screenshots
 
+## Users
+
 ### Homepage
 
-![Homepage](./frontend/src/assets/UI/HeroSection.png)
+![Homepage](/src/assets/UI/HeroSection.png)
 
 ### Products Page
 
-![Products](./frontend/src/assets/UI/CollectionList.png)
+![Products](src/assets/UI/CollectionList.png)
+
+### About Us page 
+
+![AboutUs](/src/assets/UI/AboutUs.png)
+
+### Featured Products 
+
+![Featured](/src/assets/UI/Featured.png)
+
+
+### Contact Us
+
+![ContactUs](/src/assets/UI/Contact.png)
+
+### User Login
+
+![UserLogin](/src/assets/UI/UserLogin.png)
+
+### User Registration 
+
+![UserRegistration](/src/assets/UI/UserRegistration.png)
+
+### Footer
+
+![Footer](/src/assets/UI/Footer.png)
+
+### Collection List
+
+![CollectionList](/src/assets/UI/CollectionList.png)
+![CollectionList](/src/assets/UI/CollectionList2.png)
+
+### Filter Feature
+
+![FilterFeature](/src/assets/UI/FilterFeature.png)
+
+
+### Confirmation Alert
+
+![Confirmation Alert](/src/assets/UI/AlertSimulation.png)
+
 
 ### Shopping Cart
 
-![Cart](./frontend/src/assets/UI/Cart.png)
+![Cart](/src/assets/UI/Cart.png)
 
 ### Checkout
 
-![Checkout](./frontend/src/assets/UI/Checkout.png)
+![Checkout](/src/assets/UI/Checkout.png)
+
+## Admin
+
+### Admin Login
+
+![AdminLogin](/src/assets/UI/AdminLogin.png)
 
 ### Admin Dashboard
 
-![Admin Dashboard](./frontend/src/assets/UI/AdminDashboard.png)
+![Admin Dashboard](/src/assets/UI/AdminDashboard.png)
 
 ### Product Management
 
-![Product Management](./frontend/src/assets/UI/AdminProducts.png)
+![Product Management](/src/assets/UI/ManageProducts.png)
+
+### Edit Product
+
+![Product Editing](/src/assets/UI/EditProduct.png)
+![Product Editing](/src/assets/UI/EditProduct2.png)
+
+### Orders
+
+![Orders](/src/assets/UI/OrdersPage.png)
+
+### Product Adding
+
+![Product Adding](/src/assets/UI/AddProduct.png)
+![Product Adding](/src/assets/UI/AddProduct2.png)
+
 
 ---
 
