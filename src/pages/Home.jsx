@@ -24,7 +24,7 @@ function Home() {
 
     return (
         <>
-            {/* HERO SECTION */}
+
             <section
                 className="bg-dark-custom text-light py-5"
                 style={{
@@ -34,8 +34,7 @@ function Home() {
                     minHeight: '80vh',
                     position: 'relative'
                 }}
-            >
-                {/* Dark overlay */}
+          >
                 <div style={{
                     position: 'absolute',
                     top: 0,
@@ -60,7 +59,6 @@ function Home() {
                 </div>
             </section>
 
-            {/* FEATURED PRODUCTS */}
             <section className="container py-5">
                 <h2 className="text-center mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
                     <i className="bi bi-star-fill text-gold me-2"></i>Signature Styles
