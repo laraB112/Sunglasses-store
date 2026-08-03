@@ -1,4 +1,3 @@
-// src/components/ProductCard.jsx
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../Context/Context.js';
 
@@ -15,13 +14,13 @@ function ProductCard({ product }) {
     description: product.description
   };
 
-  // 👇 ADD THIS - Build the image URL
+  
   const imageUrl = `http://localhost:8083${product.image_url}`;
 
   return (
     <div className="card product-card h-100 shadow-sm">
       <img
-        src={imageUrl}  // 👈 ADD THIS - was missing!
+        src={imageUrl}  
         className="card-img-top"
         alt={product.name}
         style={{ height: '250px', objectFit: 'cover' }}
