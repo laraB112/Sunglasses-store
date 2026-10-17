@@ -1,321 +1,177 @@
-# PureLux – Luxury Sunglasses Store
+# PureLux — Luxury Sunglasses Store
 
-A full-stack e-commerce web application for browsing and purchasing luxury sunglasses. The project provides customers with a smooth shopping experience while giving administrators the ability to manage products and customer orders through a dedicated admin panel.
+## Overview
 
----
+**Full-Stack E-Commerce Platform for Luxury Sunglasses**
 
-# Overview
+PureLux is a full-stack e-commerce web application designed to provide customers with a convenient way to browse, explore, and purchase luxury sunglasses online.
 
-PureLux is an online luxury sunglasses store built using **React**, **Node.js**, **Express.js**, and **MySQL**. The application allows users to browse products, search and filter sunglasses, manage their shopping cart, and complete the checkout process. It also includes an admin dashboard where products can be added, edited, or removed, customer orders can be viewed, and product images can be uploaded.
+The platform combines an interactive React frontend with a Node.js and Express.js backend, using MySQL for database management. It also includes an administrative dashboard for managing products and customer orders.
 
----
+## Problem Statement
 
-# Features
+Traditional product-selling processes may lack a centralized platform where customers can explore products, manage shopping carts, and place orders conveniently.
 
-## Customer Features
+Store administrators also need an efficient way to manage product listings, upload product images, and monitor customer orders.
 
-- Browse available sunglasses
-- Search and filter products
-- View product details
-- Add and remove items from the shopping cart
-- Update product quantities
-- Guest checkout
-- User registration and login
-- Order confirmation
+These challenges can lead to:
 
-## Admin Features
+- Difficulties browsing and finding products.
+- Inconvenient shopping and checkout processes.
+- Time-consuming product management.
+- Manual order tracking and administration.
+- Limited integration between the customer interface and backend services.
 
-- Secure administrator login
-- View dashboard statistics
-- Add new products
-- Edit existing products
-- Delete products
-- Upload product images
-- View customer orders
+## Solution
 
----
+PureLux provides an integrated e-commerce platform connecting a customer-facing storefront with backend APIs and a MySQL database.
 
-# Technologies Used
+Customers can browse the sunglasses collection, search and filter products, manage their shopping carts, and complete the checkout process. Administrators can manage product listings and access customer order information through a dedicated dashboard.
 
-## Frontend
+The system centralizes essential shopping and administrative operations within one application.
+
+## Core Features
+
+### Customer Portal
+
+Customers can:
+
+- Browse the sunglasses collection.
+- Search and filter available products.
+- View product details.
+- Add products to the shopping cart.
+- Update product quantities and manage cart items.
+- Proceed through guest checkout.
+- Register and log in to an account.
+- Place orders and view order confirmation.
+
+### Administration Portal
+
+Administrators can:
+
+- Access the admin login.
+- View dashboard statistics.
+- Add new products.
+- Edit existing product information.
+- Delete products.
+- Upload product images.
+- View and manage customer orders.
+
+### Product Management
+
+The application provides product management functionality through backend API endpoints and database operations, allowing product information to be created, updated, retrieved, and deleted.
+
+### Shopping and Order Management
+
+The shopping workflow connects product browsing, cart management, checkout, and order creation to support the customer's purchasing journey.
+
+## User Roles
+
+### Customer
+
+Users who browse products, manage their carts, and place orders.
+
+### Administrator
+
+The person responsible for managing the product catalog and monitoring customer orders through the administrative dashboard.
+
+## System Workflow
+
+1. The customer opens the PureLux storefront.
+2. The customer browses, searches, or filters the available sunglasses.
+3. The customer views product details and adds selected products to the cart.
+4. The customer reviews the cart and proceeds to checkout.
+5. The React frontend sends the necessary requests to the backend.
+6. The Node.js server runs the application, while Express.js handles API routes and HTTP requests.
+7. The backend interacts with MySQL to store and retrieve application data.
+8. The administrator accesses the dashboard to manage products and review orders.
+
+## Technology Stack
+
+### Frontend
 
 - React 18
+- JavaScript
 - React Router
 - Bootstrap 5
 - React Context API
 - Bootstrap Icons
+- HTML5 and CSS3
 
-## Backend
+### Backend
 
-- Node.js
-- Express.js
-- MySQL
-- Multer (for images)
-- CORS
+- Node.js — JavaScript runtime for the server.
+- Express.js — Backend framework for handling API routes and HTTP requests.
+- RESTful APIs — Communication between the frontend and backend.
+- Multer — File upload handling.
+- CORS — Cross-origin request configuration.
 
----
+### Database
 
-```
+- MySQL — Relational database for storing application data.
 
----
+### API Communication
 
-# Installation
+- HTTP requests and responses.
+- RESTful API architecture.
+- Frontend-to-backend communication.
 
-## Prerequisites
-
-Before running the project, make sure you have:
-
-- Node.js (version 14 or later)
-- MySQL
-- npm
-
-## Clone the Repository
-
-```bash
-git clone https://github.com/laraB112/Sunglasses-store.git
-cd Sunglasses-store
-```
-
-## Backend Setup
-
-```bash
-cd backend
-
-npm install
-```
-
-Create a MySQL database, then import the `database.sql` file.
-
-Start the backend server:
-
-```bash
-node server.js
-```
-
-## Frontend Setup
-
-```bash
-cd ../frontend
-
-npm install
-
-npm start
-```
-
-After running both servers, the application will be available at:
-
-- Frontend: http://localhost:3000
-- Backend: http://localhost:8083
-
----
-
-# Default Admin Account
-
-Email:
+## System Architecture
 
 ```text
-LaraAdmin@gmail.com
+       Customer / Administrator
+                  |
+                  v
+           React Frontend
+                  |
+             HTTP Requests
+                  |
+                  v
+           Node.js Server
+                  |
+                  v
+            Express.js API
+                  |
+          +-------+--------+
+          |                |
+          v                v
+    MySQL Database    Image Uploads
+          |
+          v
+   Products, Users,
+      and Orders
 ```
 
-Password:
+The React frontend communicates with the backend through HTTP requests. Node.js runs the server, and Express.js handles API routing and request processing. The backend interacts with MySQL for data storage and retrieval, while Multer handles product image uploads.
 
-```text
-admin123
-```
+## Non-Functional Requirements
 
----
+- Clear and consistent user interface.
+- Organized separation between frontend and backend.
+- Reliable database operations.
+- Appropriate protection for authentication and administrative access.
+- Maintainable application structure.
+- Validation of user input and order information.
+- Responsive layout across supported screen sizes.
 
-# API Routes
+## Future Enhancements
 
-The backend includes routes for:
+- Online payment gateway integration.
+- Wishlist functionality.
+- Product ratings and reviews.
+- Order tracking.
+- Email notifications for order updates.
+- Enhanced mobile responsiveness.
+- Improved inventory management.
 
-- Retrieving all products
-- Retrieving a single product
-- Adding a new product
-- Updating an existing product
-- Deleting a product
-- Viewing all customer orders
-- Creating a new order
-- User registration
-- User login
+## Project Status
 
----
+**Full-Stack E-Commerce Project**
 
-# Database
+PureLux includes a React storefront, a Node.js and Express.js backend, MySQL database integration, and an administrative interface for product and order management.
 
-The database contains three main tables:
-
-## Users
-
-Stores customer account information including name, email, password, phone number, and shipping address.
-
-```sql
-CREATE TABLE users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    phone VARCHAR(20),
-    address TEXT,
-    city VARCHAR(50)
-);
-```
-
-## Products
-
-Stores information about each sunglasses product available in the store.
-
-```sql
-CREATE TABLE products (
-    productId INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    brand VARCHAR(50) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    category VARCHAR(50) NOT NULL,
-    image_url VARCHAR(255),
-    description TEXT
-);
-```
-
-## Orders
-
-Stores customer order details including shipping information, total price, and purchased items.
-
-```sql
-CREATE TABLE orders (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    customer_name VARCHAR(100) NOT NULL,
-    customer_email VARCHAR(100) NOT NULL,
-    customer_phone VARCHAR(20),
-    shipping_address TEXT,
-    city VARCHAR(50),
-    total DECIMAL(10,2) NOT NULL,
-    items JSON NOT NULL
-);
-
-The items column is stored as JSON to simplify the order structure, allowing all product details (name, quantity, price) to be saved in a single column without requiring a separate order_items table and complex JOIN queries.
-
-```
-
----
-
-# Screenshots
-
-## Users
-
-### Homepage
-
-![Homepage](/src/assets/UI/HeroSection.png)
-
-### Products Page
-
-![Products](src/assets/UI/CollectionList.png)
-
-### About Us page 
-
-![AboutUs](/src/assets/UI/AboutUs.png)
-
-### Featured Products 
-
-![Featured](/src/assets/UI/Featured.png)
-
-
-### Contact Us
-
-![ContactUs](/src/assets/UI/Contact.png)
-
-### User Login
-
-![UserLogin](/src/assets/UI/UserLogin.png)
-
-### User Registration 
-
-![UserRegistration](/src/assets/UI/UserRegistration.png)
-
-### Footer
-
-![Footer](/src/assets/UI/Footer.png)
-
-### Collection List
-
-![CollectionList](/src/assets/UI/CollectionList.png)
-![CollectionList](/src/assets/UI/CollectionList2.png)
-
-### Filter Feature
-
-![FilterFeature](/src/assets/UI/FilterFeature.png)
-
-
-### Confirmation Alert
-
-![Confirmation Alert](/src/assets/UI/AlertSimulation.png)
-
-
-### Shopping Cart
-
-![Cart](/src/assets/UI/Cart.png)
-
-### Checkout
-
-![Checkout](/src/assets/UI/Checkout.png)
-
-## Admin
-
-### Admin Login
-
-![AdminLogin](/src/assets/UI/AdminLogin.png)
-
-### Admin Dashboard
-
-![Admin Dashboard](/src/assets/UI/AdminDashboard.png)
-
-### Product Management
-
-![Product Management](/src/assets/UI/ManageProducts.png)
-
-### Edit Product
-
-![Product Editing](/src/assets/UI/EditProduct.png)
-![Product Editing](/src/assets/UI/EditProduct2.png)
-
-### Orders
-
-![Orders](/src/assets/UI/OrdersPage.png)
-
-### Product Adding
-
-![Product Adding](/src/assets/UI/AddProduct.png)
-![Product Adding](/src/assets/UI/AddProduct2.png)
-
-
----
-
-# Future Improvements
-
-Possible enhancements for future versions include:
-
-- Online payment integration
-- Wishlist functionality
-- Product reviews and ratings
-- Order tracking
-- Email notifications
-- Improved mobile responsiveness
-
----
-
-# Author
+## Author
 
 **Lara Al Bayasli**
-**Student ID:** 12232131
 
----
-
-# Academic Information
-
-**Course:** CSCI426 – Advanced Web Programming
-
-**Semester:** Summer 2026
-
-**Project Completed:** August 2026
-
----
+GitHub: https://github.com/laraB112
